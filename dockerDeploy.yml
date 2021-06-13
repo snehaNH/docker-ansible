@@ -1,4 +1,4 @@
-- hosts:
+- hosts: dev
     become: yes
     tasks:
       - name: Install python
