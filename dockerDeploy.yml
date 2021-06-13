@@ -1,4 +1,4 @@
-- hosts:
+- hosts: dev
   become: yes
   tasks:
     - name: Instal python
@@ -6,22 +6,22 @@
         name: python-pip
         state: present
     - name: Install docker
-        apt:
-          name: docker
-          state: present
+      apt:
+        name: docker
+        state: present
     - name: Start docker
-        service:
-          name: docker
-          state: started
-          enabled: yes
+      service:
+        name: docker
+        state: started
+        enabled: yes
     - name: Install docker-python module
-        apt:
-          name: docker-py
-          state: present
+      apt:
+        name: docker-py
+        state: present
     - name: Run Docker container
-        docker_container:
-          name: dockerapp
-          image: "naveenjh23/dockerapp:${{DOCKER_TAG}}"
-          state: started
-          published_ports:
-            - 0.0.0.0:8080:8080
+      docker_container:
+        name: dockerapp
+        image: "naveenjh23/dockerapp:${{DOCKER_TAG}}"
+        state: started
+        published_ports:
+          - 0.0.0.0:8080:8080
