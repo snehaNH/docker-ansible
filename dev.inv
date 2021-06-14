@@ -1,2 +1,2 @@
 [dev]
-192.168.56.105 ansible_ssh_user=naveen
+192.168.56.105 ansible_ssh_user=naveen2
